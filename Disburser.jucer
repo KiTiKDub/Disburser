@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="zllLV0" name="Disburser" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="KiTiK Music">
+  <MAINGROUP id="FittdO" name="Disburser">
+    <GROUP id="{0CFEBB27-834C-528C-6CD8-83A9E4EF494B}" name="Assets">
+      <FILE id="Q2a1SN" name="OFFSHORE.TTF" compile="0" resource="1" file="../../../APPDATA/LOCAL/MICROSOFT/WINDOWS/FONTS/OFFSHORE.TTF"/>
+      <FILE id="j82PCL" name="KITIK_LOGO_NO_BKGD.png" compile="0" resource="1"
+            file="../../Muisc/Pictures/KITIK_LOGO_NO_BKGD.png"/>
+    </GROUP>
+    <GROUP id="{2A778C0A-15BD-F41A-1C87-9CDA5D9A941B}" name="Source">
+      <GROUP id="{4110C239-A921-31A1-ADF4-42E3D6AC0D21}" name="Utility">
+        <FILE id="sNKweb" name="KiTiK_utilityViz.cpp" compile="1" resource="0"
+              file="Source/Utility/KiTiK_utilityViz.cpp"/>
+        <FILE id="hDKAJS" name="KiTiK_utilityViz.h" compile="0" resource="0"
+              file="Source/Utility/KiTiK_utilityViz.h"/>
+      </GROUP>
+      <GROUP id="{9FFF8903-A6C3-9901-3EB5-CE98B6979998}" name="GUI">
+        <FILE id="UvUT4J" name="kLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/GUI/kLookAndFeel.cpp"/>
+        <FILE id="AznJML" name="kLookAndFeel.h" compile="0" resource="0" file="Source/GUI/kLookAndFeel.h"/>
+        <FILE id="PU2G1X" name="rotarySliderWithLabels.cpp" compile="1" resource="0"
+              file="Source/GUI/rotarySliderWithLabels.cpp"/>
+        <FILE id="MGWmAL" name="rotarySliderWithLabels.h" compile="0" resource="0"
+              file="Source/GUI/rotarySliderWithLabels.h"/>
+        <FILE id="HC4yT0" name="SliderWithLabels.cpp" compile="1" resource="0"
+              file="Source/GUI/SliderWithLabels.cpp"/>
+        <FILE id="srtQaN" name="SliderWithLabels.h" compile="0" resource="0"
+              file="Source/GUI/SliderWithLabels.h"/>
+      </GROUP>
+      <FILE id="FM4taV" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="N2XY9Z" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="EBrMcA" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="PiQabo" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Disburser" enablePluginBinaryCopyStep="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Disburser"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
