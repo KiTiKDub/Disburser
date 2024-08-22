@@ -30,7 +30,7 @@ struct Laf : juce::LookAndFeel_V4 {
         const juce::Drawable* icon, const juce::Colour* textColour) override;
     void paintToolbarBackground(juce::Graphics& g, int w, int h, juce::Toolbar& toolbar) override;
     void drawLinearSliderOutline(juce::Graphics& g, int x, int y, int width, int height,
-        const juce::Slider::SliderStyle, juce::Slider& slider);
+        const juce::Slider::SliderStyle, juce::Slider& slider) override;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Laf)

@@ -152,7 +152,6 @@ void DisburserAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     auto block = juce::dsp::AudioBlock<float>(buffer);
     auto* dataLeft = block.getChannelPointer(0);
     auto* dataRight = block.getChannelPointer(1);
-    auto context = juce::dsp::ProcessContextReplacing<float>(block);
 
     auto coef = juce::dsp::IIR::Coefficients<float>::makeAllPass(getSampleRate(), cutoff->get(), smash->get());
     auto scatterValue = scatter->get();
@@ -235,9 +234,9 @@ juce::AudioProcessorValueTreeState::ParameterLayout DisburserAudioProcessor::cre
     auto cutoffRange = makeLogarithmicRange(20.f, 20000.f);
     auto smashRange = NormalisableRange<float>(.71, 10, .1, 1);
 
-    layout.add(std::make_unique<AudioParameterFloat>("scatter", "Scatter", scatterRange, 0));
-    layout.add(std::make_unique<AudioParameterFloat>("cutoff", "Cutoff", cutoffRange, 200));
-    layout.add(std::make_unique<AudioParameterFloat>("smash", "Smash", smashRange, .71));
+    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"scatter",1}, "Scatter", scatterRange, 0));
+    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"cutoff",1}, "Cutoff", cutoffRange, 200));
+    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"smash",1}, "Smash", smashRange, .71));
 
     return layout;
 }

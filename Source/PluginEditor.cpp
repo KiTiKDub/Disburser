@@ -55,8 +55,8 @@ void DisburserAudioProcessorEditor::paint (juce::Graphics& g)
     auto logo = juce::ImageCache::getFromMemory(BinaryData::KITIK_LOGO_NO_BKGD_png, BinaryData::KITIK_LOGO_NO_BKGD_pngSize);
     g.drawImage(logo, logoArea.toFloat(), juce::RectanglePlacement::centred);
 
-    auto newFont = juce::Font(juce::Typeface::createSystemTypefaceFor(BinaryData::OFFSHORE_TTF, BinaryData::OFFSHORE_TTFSize));
-    g.setFont(newFont);
+//    auto newFont = juce::Font(juce::Typeface::createSystemTypefaceFor(BinaryData::offshore_ttf, BinaryData::offshore_ttfSize));
+//    g.setFont(newFont);
     g.setFont (top.getHeight() * .95);
 
     g.drawFittedText("Disburser", top.toNearestInt(), juce::Justification::Justification::centred, 1);

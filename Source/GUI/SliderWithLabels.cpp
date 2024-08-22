@@ -43,7 +43,6 @@ void SliderWithLabels::paint(juce::Graphics& g)
             auto str = labels[i].label;
             auto textHeight = labels[i].fontSize;
             g.setFont(textHeight);
-            auto strWidth = g.getCurrentFont().getStringWidth(str);
 
             if (pos == 1)
             {
@@ -82,7 +81,6 @@ void SliderWithLabels::paint(juce::Graphics& g)
             auto str = labels[i].label;
             auto textHeight = labels[i].fontSize;
             g.setFont(textHeight);
-            auto strWidth = g.getCurrentFont().getStringWidth(str);
 
             if (pos == 1)
             {

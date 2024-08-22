@@ -59,7 +59,6 @@
         auto bounds = getLocalBounds();
         float width = bounds.getWidth();
         float height = bounds.getHeight();
-        auto skewFactor = width / data.scopeSize;
 
         if (data.nextFFTBlockReady)
         {
@@ -72,8 +71,6 @@
         juce::Path p;
 
         p.startNewSubPath(0, height);
-
-        int numBins = data.scopeSize;
 
         for (int i = 1; i < data.scopeSize; ++i)
         {
@@ -105,7 +102,6 @@
         data.forwardFFT.performFrequencyOnlyForwardTransform(data.fftData);
 
         float min_dB = -72.f;
-        float max_dB = 0;
 
         int numBins = (int)data.fftSize / 2;
 
