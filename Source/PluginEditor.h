@@ -12,6 +12,7 @@
 #include "PluginProcessor.h"
 #include "GUI/kLookAndFeel.h"
 #include "Utility/KiTiK_utilityViz.h"
+#include "GUI/rotarySliderWithLabels.h"
 
 //==============================================================================
 /**
@@ -29,6 +30,8 @@ public:
 
 private:
 
+    void updateRSWL();
+
     DisburserAudioProcessor& audioProcessor;
 
     Laf lnf;
@@ -38,8 +41,11 @@ private:
 
     FFTComp fftComp;
 
-    juce::Slider scatter, cutoff, smash;
-    juce::AudioProcessorValueTreeState::SliderAttachment scatterAT, cutoffAT, smashAT;
+    juce::Slider cutoff;
+    std::unique_ptr<RotarySliderWithLabels> scatter, smash;
+
+    juce::AudioProcessorValueTreeState::SliderAttachment cutoffAT;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> scatterAT, smashAT;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DisburserAudioProcessorEditor)
 };

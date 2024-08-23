@@ -38,35 +38,31 @@ protected:
     juce::RangedAudioParameter* param;
     juce::String suffix;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RotarySliderWithLabels)
 };
 
 template <
     typename Attachment,
     typename APVTS,
-    typename Params,
     typename ParamName,
     typename SliderType
 >
 void makeAttachment(std::unique_ptr<Attachment>& attachment,
     APVTS& apvts,
-    const Params& params,
     const ParamName& name,
     SliderType& slider)
 {
     attachment = std::make_unique<Attachment>(apvts,
-        params.at(name),
+        name,
         slider);
 }
 
 template <
     typename APVTS,
-    typename Params,
     typename Name
 >
-juce::RangedAudioParameter& getParam(APVTS& apvts, Params& params, const Name& name)
+juce::RangedAudioParameter& getParam(APVTS& apvts, const Name& name)
 {
-    auto param = apvts.getParameter(params.at(name));
+    auto param = apvts.getParameter(name);
 
     return *param;
 }

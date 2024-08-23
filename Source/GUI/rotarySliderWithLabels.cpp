@@ -20,6 +20,7 @@ void RotarySliderWithLabels::paint(juce::Graphics& g) {
 
     auto sliderBounds = getSliderBounds();
 
+    auto bounds = getLocalBounds();
     g.setColour(Colours::white);
 
     getLookAndFeel().drawRotarySlider(g,
@@ -37,28 +38,26 @@ void RotarySliderWithLabels::paint(juce::Graphics& g) {
 
     g.setColour(Colours::white);
 
-    //g.drawRect(sliderBounds);
-    //g.setColour(juce::Colours::orange);
-    //g.drawRect(bounds);
-
     auto numChoices = labels.size();
 
     for(int i = 0; i < numChoices; ++i)
     {
         Rectangle<float> r;
         Point<float> c;
+        float ang;
 
         auto pos = labels[i].pos;
         auto str = labels[i].label;
         auto textHeight = labels[i].fontSize;
         g.setFont(textHeight);
         auto strWidth = g.getCurrentFont().getStringWidth(str);
+        float extraPush = 0;
         
         r.setSize(strWidth, textHeight); //draww text on edge of slider bounds, or create a slightly bigger bounds and draw them on that
 
         if (pos == 1) //Will need to do something based on ratios. Normal sliders this does not work for 2 & 4
         {
-            c = center.getPointOnCircumference(radius + textHeight*.8, 0); //this may also be bad for smaller sliders
+            c = center.getPointOnCircumference(radius + textHeight*.15, 0); //this may also be bad for smaller sliders
             r.setCentre(c);
         }
         else if (pos == 2)
@@ -77,8 +76,6 @@ void RotarySliderWithLabels::paint(juce::Graphics& g) {
             c = center.getPointOnCircumference(radius + strWidth/2, 3 * MathConstants<float>::pi / 2);
             r.setCentre(c);
         }
-
-        //g.drawRect(r);
 
         g.drawFittedText(str, r.toNearestInt(), juce::Justification::centred, 2, 1);
     }
