@@ -11,8 +11,8 @@
 
 //==============================================================================
 DisburserAudioProcessorEditor::DisburserAudioProcessorEditor (DisburserAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p),
-    cutoffAT(p.apvts, "cutoff", cutoff), fftComp(p.fftData)
+    : AudioProcessorEditor (&p), audioProcessor (p), fftComp(p.fftData),
+    cutoffAT(p.apvts, "cutoff", cutoff)
 {
     
     setLookAndFeel(&lnf);
