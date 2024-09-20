@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zllLV0" name="Disburser" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="KiTiK Music">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="KiTiK Music"
+              version="1.1.1">
   <MAINGROUP id="FittdO" name="Disburser">
     <GROUP id="{0CFEBB27-834C-528C-6CD8-83A9E4EF494B}" name="Assets">
       <FILE id="jIz0jN" name="KITIK_LOGO_NO_BKGD.png" compile="0" resource="1"

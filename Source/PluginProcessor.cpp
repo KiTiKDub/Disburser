@@ -149,9 +149,12 @@ void DisburserAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    auto block = juce::dsp::AudioBlock<float>(buffer);
-    auto* dataLeft = block.getChannelPointer(0);
-    auto* dataRight = block.getChannelPointer(1);
+    auto dataLeft = buffer.getWritePointer(0);
+    auto dataRight = buffer.getWritePointer(1);
+
+    //To make AU val happy
+    if (totalNumInputChannels == 1)
+        dataRight = buffer.getWritePointer(0);
 
     auto coef = juce::dsp::IIR::Coefficients<float>::makeAllPass(getSampleRate(), cutoff->get(), smash->get());
     auto scatterValue = scatter->get();
@@ -169,10 +172,10 @@ void DisburserAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     {
         avgValue += scatterValues[i];
     }
-
+    
     if((avgValue / scatterSize) == scatterValue)
     {
-        for (int s = 0; s < block.getNumSamples(); s++)
+        for (int s = 0; s < buffer.getNumSamples(); s++)
         {
             auto left = dataLeft[s];
             auto right = dataRight[s];
@@ -234,9 +237,9 @@ juce::AudioProcessorValueTreeState::ParameterLayout DisburserAudioProcessor::cre
     auto cutoffRange = makeLogarithmicRange(20.f, 20000.f);
     auto smashRange = NormalisableRange<float>(.71, 10, .1, 1);
 
-    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"scatter",1}, "Scatter", scatterRange, 0));
-    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"cutoff",1}, "Cutoff", cutoffRange, 200));
-    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"smash",1}, "Smash", smashRange, .71));
+    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"scatter",2}, "Scatter", scatterRange, 0));
+    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"cutoff",2}, "Cutoff", cutoffRange, 200));
+    layout.add(std::make_unique<AudioParameterFloat>(juce::ParameterID{"smash",2}, "Smash", smashRange, .71));
 
     return layout;
 }
